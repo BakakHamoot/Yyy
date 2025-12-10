@@ -1,40 +1,126 @@
 -- Gui to Lua
 -- Version: 3.2
-
--- Instances:
+-- Instances :
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local IMAGE = Instance.new("ImageLabel")
-local ScrollingFrame = Instance.new("ScrollingFrame")
-local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextLabel")
 local TextLabel2 = Instance.new("TextLabel")
-local R6AVATAR = Instance.new("TextButton")
-local RESETAVATAR = Instance.new("TextButton")
-local K00PGUI = Instance.new("TextButton")
-local AVATAR = Instance.new("TextButton")
-local NOGRAVITY = Instance.new("TextButton")
-local UNANCHORED = Instance.new("TextButton")
-local CONSOLEDES = Instance.new("TextButton")
-local FIREOUTSIDE = Instance.new("TextButton")
-local JUMPSTLYE = Instance.new("TextButton")
-local DISCO = Instance.new("TextButton")
-local HINTGAME = Instance.new("TextButton")
-local BALLRAINING = Instance.new("TextButton")
-local PARTICLES = Instance.new("TextButton")
-local NOOTNOOT = Instance.new("TextButton")
-local SKYBOX = Instance.new("TextButton")
-local JUMPSCARE = Instance.new("TextButton")
-local C00ZBDDKIDDGUI = Instance.new("TextButton")
-local BYPASS1 = Instance.new("TextButton")
-local DAY = Instance.new("TextButton")
-local NIGHT = Instance.new("TextButton")
-local STOPMUSIC = Instance.new("TextButton")
-local SKYBOX2 = Instance.new("TextButton")
-local DREAMYBULLXXX = Instance.new("TextButton")
-local DECALSPAM1 = Instance.new("TextButton")
-local JO1TAR0GUI = Instance.new("TextButton")
-local ARABGUI = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+
+--Properties :
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 255, 0)
+Frame.BorderSizePixel = 3
+Frame.Position = UDim2.new(0.536656916, 0, 0.220883533, 0)
+Frame.Size = UDim2.new(0, 282, 0, 333)
+
+IMAGE.Parent = Frame
+IMAGE.BackgroundColor3 = Color3.fromRGB(174, 167, 255)
+IMAGE.BackgroundTransparency = 1
+IMAGE.BorderColor3 = Color3.fromRGB(0, 255, 0)
+IMAGE.BorderSizePixel = 3
+IMAGE.Size = UDim2.new(0, 356, 0, 300)
+IMAGE.Image = "rbxassetid:// ID HERE"
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(174, 167, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.BorderSizePixel = 3
+TextLabel.Position = UDim2.new(0.25, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 356, 0, 25)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Cr4z31's Gui"
+TextLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel2.Parent = Frame
+TextLabel2.BackgroundColor3 = Color3.fromRGB(174, 167, 255)
+TextLabel2.BackgroundTransparency = 1
+TextLabel2.BorderColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel2.BorderSizePixel = 3
+TextLabel2.Position = UDim2.new(0, 0, 0.889380515, 0)
+TextLabel2.Size = UDim2.new(0, 356, 0, 25)
+TextLabel2.Font = Enum.Font.SourceSans
+TextLabel2.Text = "Backdoor Edition"
+TextLabel2.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextLabel2.TextScaled = true
+TextLabel2.TextSize = 14.000
+TextLabel2.TextWrapped = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
+TextButton.BorderSizePixel = 3
+TextButton.Position = UDim2.new(0.08, 0, 0.5, 0)
+TextButton.Size = UDim2.new(0, 80, 0, 35)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Steve Script"
+TextButton.TextColor3 = Color3.fromRGB(0, 255, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:connect(function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Test4267/steve/refs/heads/main/rare"))()
+end)
+
+-- Script:
+
+local function QFCS_fake_script() -- Frame.Dragify 
+	local script = Instance.new('LocalScript', Frame)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(QFCS_fake_script)()local ARABGUI = Instance.new("TextButton")
 local TOADKAAX = Instance.new("TextButton")
 local FASTHINT = Instance.new("TextButton")
 local MESSAGESPAM = Instance.new("TextButton")
