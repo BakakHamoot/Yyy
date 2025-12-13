@@ -557,4 +557,72 @@ TextButton2.Size = UDim2.new(0, 70, 0, 27)
 TextButton2.Font = Enum.Font.SourceSans
 TextButton2.Text = "Lua hammer"
 TextButton2.TextColor3 = Color3.fromRGB(242, 243, 243)
-TextButton2.TextScaled = tru
+TextButton2.TextScaled = true
+TextButton2.TextSize = 14.000
+TextButton2.TextWrapped = true
+TextButton2.MouseButton1Down:connect(function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Imagnir/r6_anims_for_r15/main/r6_anims.lua'),true))()
+end)
+
+TextButton3.Parent = Frame
+TextButton3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton3.BorderColor3 = Color3.fromRGB(174, 167, 255)
+TextButton3.BorderSizePixel = 3
+TextButton3.Position = UDim2.new(0.7, 0, 0.75, 0)
+TextButton3.Size = UDim2.new(0, 70, 0, 27)
+TextButton3.Font = Enum.Font.SourceSans
+TextButton3.Text = "Steve"
+TextButton3.TextColor3 = Color3.fromRGB(242, 243, 243)
+TextButton3.TextScaled = true
+TextButton3.TextSize = 14.000
+TextButton3.TextWrapped = true
+TextButton3.MouseButton1Down:connect(function()
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Icalock/Server/refs/heads/main/Lua%20Hammer.txt", true))()
+end)
+
+-- Script:
+
+local function QFCS_fake_script() -- Frame.Dragify 
+	local script = Instance.new('LocalScript', Frame)
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+	    dragToggle = nil
+	    local dragSpeed = 0
+	    dragInput = nil
+	    dragStart = nil
+	    local dragPos = nil
+	    function updateInput(input)
+	        local Delta = input.Position - dragStart
+	        local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+	        game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	    end
+	    Frame.InputBegan:Connect(function(input)
+	        if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+	            dragToggle = true
+	            dragStart = input.Position
+	            startPos = Frame.Position
+	            input.Changed:Connect(function()
+	                if input.UserInputState == Enum.UserInputState.End then
+	                    dragToggle = false
+	                end
+	            end)
+	        end
+	    end)
+	    Frame.InputChanged:Connect(function(input)
+	        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+	            dragInput = input
+	        end
+	    end)
+	    game:GetService("UserInputService").InputChanged:Connect(function(input)
+	        if input == dragInput and dragToggle then
+	            updateInput(input)
+	        end
+	    end)
+	end
+	
+	dragify(script.Parent)
+end
+coroutine.wrap(QFCS_fake_script)()
